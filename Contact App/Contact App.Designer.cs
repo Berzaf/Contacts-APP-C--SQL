@@ -157,6 +157,7 @@ namespace Contact_App
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnReset
             // 
@@ -181,7 +182,7 @@ namespace Contact_App
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
+            
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Red;
