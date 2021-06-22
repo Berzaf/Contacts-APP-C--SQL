@@ -49,6 +49,8 @@ namespace Contact_App
             this.btnExit = new System.Windows.Forms.Button();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
+            this.textBoxContactId = new System.Windows.Forms.TextBox();
+            this.lblContactId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +72,7 @@ namespace Contact_App
             this.lblFname.AutoSize = true;
             this.lblFname.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFname.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblFname.Location = new System.Drawing.Point(113, 176);
+            this.lblFname.Location = new System.Drawing.Point(113, 217);
             this.lblFname.Name = "lblFname";
             this.lblFname.Size = new System.Drawing.Size(116, 24);
             this.lblFname.TabIndex = 1;
@@ -80,7 +82,7 @@ namespace Contact_App
             // 
             this.textBoxFname.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxFname.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxFname.Location = new System.Drawing.Point(334, 173);
+            this.textBoxFname.Location = new System.Drawing.Point(334, 214);
             this.textBoxFname.Name = "textBoxFname";
             this.textBoxFname.Size = new System.Drawing.Size(248, 30);
             this.textBoxFname.TabIndex = 2;
@@ -89,7 +91,7 @@ namespace Contact_App
             // 
             this.textBoxLname.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxLname.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxLname.Location = new System.Drawing.Point(334, 239);
+            this.textBoxLname.Location = new System.Drawing.Point(334, 280);
             this.textBoxLname.Name = "textBoxLname";
             this.textBoxLname.Size = new System.Drawing.Size(248, 30);
             this.textBoxLname.TabIndex = 4;
@@ -99,7 +101,7 @@ namespace Contact_App
             this.lblLname.AutoSize = true;
             this.lblLname.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLname.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblLname.Location = new System.Drawing.Point(113, 242);
+            this.lblLname.Location = new System.Drawing.Point(113, 283);
             this.lblLname.Name = "lblLname";
             this.lblLname.Size = new System.Drawing.Size(112, 24);
             this.lblLname.TabIndex = 3;
@@ -109,7 +111,7 @@ namespace Contact_App
             // 
             this.textBoxPnum.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxPnum.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxPnum.Location = new System.Drawing.Point(334, 313);
+            this.textBoxPnum.Location = new System.Drawing.Point(334, 354);
             this.textBoxPnum.Name = "textBoxPnum";
             this.textBoxPnum.Size = new System.Drawing.Size(248, 30);
             this.textBoxPnum.TabIndex = 6;
@@ -119,7 +121,7 @@ namespace Contact_App
             this.lblPnum.AutoSize = true;
             this.lblPnum.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPnum.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblPnum.Location = new System.Drawing.Point(113, 316);
+            this.lblPnum.Location = new System.Drawing.Point(113, 357);
             this.lblPnum.Name = "lblPnum";
             this.lblPnum.Size = new System.Drawing.Size(152, 24);
             this.lblPnum.TabIndex = 5;
@@ -129,7 +131,7 @@ namespace Contact_App
             // 
             this.textBoxAddress.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxAddress.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxAddress.Location = new System.Drawing.Point(334, 460);
+            this.textBoxAddress.Location = new System.Drawing.Point(334, 484);
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(248, 114);
@@ -140,7 +142,7 @@ namespace Contact_App
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblAddress.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblAddress.Location = new System.Drawing.Point(113, 489);
+            this.lblAddress.Location = new System.Drawing.Point(113, 513);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(87, 24);
             this.lblAddress.TabIndex = 7;
@@ -182,7 +184,8 @@ namespace Contact_App
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Red;
@@ -194,6 +197,7 @@ namespace Contact_App
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -211,11 +215,11 @@ namespace Contact_App
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(627, 249);
+            this.dataGridView1.Location = new System.Drawing.Point(627, 217);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(535, 325);
+            this.dataGridView1.Size = new System.Drawing.Size(535, 381);
             this.dataGridView1.TabIndex = 14;
             // 
             // textBoxSearch
@@ -223,7 +227,7 @@ namespace Contact_App
             this.textBoxSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxSearch.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxSearch.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxSearch.Location = new System.Drawing.Point(627, 179);
+            this.textBoxSearch.Location = new System.Drawing.Point(627, 154);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(432, 30);
             this.textBoxSearch.TabIndex = 15;
@@ -234,7 +238,7 @@ namespace Contact_App
             this.lblSearch.BackColor = System.Drawing.Color.Gray;
             this.lblSearch.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSearch.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblSearch.Location = new System.Drawing.Point(1092, 182);
+            this.lblSearch.Location = new System.Drawing.Point(1092, 154);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(70, 24);
             this.lblSearch.TabIndex = 16;
@@ -256,7 +260,7 @@ namespace Contact_App
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxEmail.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxEmail.Location = new System.Drawing.Point(334, 376);
+            this.textBoxEmail.Location = new System.Drawing.Point(334, 417);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(248, 30);
             this.textBoxEmail.TabIndex = 19;
@@ -266,11 +270,31 @@ namespace Contact_App
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEmail.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblEmail.Location = new System.Drawing.Point(113, 379);
+            this.lblEmail.Location = new System.Drawing.Point(113, 420);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(69, 24);
             this.lblEmail.TabIndex = 18;
             this.lblEmail.Text = "Email:";
+            // 
+            // textBoxContactId
+            // 
+            this.textBoxContactId.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxContactId.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBoxContactId.Location = new System.Drawing.Point(334, 154);
+            this.textBoxContactId.Name = "textBoxContactId";
+            this.textBoxContactId.Size = new System.Drawing.Size(248, 30);
+            this.textBoxContactId.TabIndex = 21;
+            // 
+            // lblContactId
+            // 
+            this.lblContactId.AutoSize = true;
+            this.lblContactId.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblContactId.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblContactId.Location = new System.Drawing.Point(113, 157);
+            this.lblContactId.Name = "lblContactId";
+            this.lblContactId.Size = new System.Drawing.Size(113, 24);
+            this.lblContactId.TabIndex = 20;
+            this.lblContactId.Text = "Contact ID:";
             // 
             // Form1
             // 
@@ -278,6 +302,8 @@ namespace Contact_App
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1246, 808);
+            this.Controls.Add(this.textBoxContactId);
+            this.Controls.Add(this.lblContactId);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.btnExit);
@@ -330,6 +356,8 @@ namespace Contact_App
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox textBoxContactId;
+        private System.Windows.Forms.Label lblContactId;
     }
 }
 
