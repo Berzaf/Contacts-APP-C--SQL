@@ -172,6 +172,7 @@ namespace Contact_App
             this.btnReset.TabIndex = 10;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnUpdate
             // 
@@ -210,6 +211,7 @@ namespace Contact_App
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dataGridView1
             // 
@@ -243,6 +245,7 @@ namespace Contact_App
             this.lblSearch.Size = new System.Drawing.Size(70, 24);
             this.lblSearch.TabIndex = 16;
             this.lblSearch.Text = "Search";
+            this.lblSearch.Click += new System.EventHandler(this.lblSearch_Click);
             // 
             // btnExit
             // 

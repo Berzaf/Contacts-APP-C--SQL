@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 namespace Contact_App
@@ -79,6 +80,38 @@ namespace Contact_App
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Successfuly Deleted");
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSearch_Click(object sender, EventArgs e)
+        {
+            string cn = @"server=localhost;user=root;password=Elora@3030;database=contactinfo";
+
+            MySqlConnection con = new MySqlConnection(cn);
+
+            con.Open();
+
+            // delete sql Query
+            string sql = "SELECT * from contactDB";
+
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            // update paramters
+            MySqlDataAdapter data = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+            
+            MessageBox.Show("Successfuly Searched");
         }
     }
 }
