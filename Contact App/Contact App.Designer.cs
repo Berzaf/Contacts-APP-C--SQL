@@ -42,8 +42,7 @@ namespace Contact_App
             this.btnReset = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvContacts = new System.Windows.Forms.DataGridView();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
@@ -51,7 +50,7 @@ namespace Contact_App
             this.lblEmail = new System.Windows.Forms.Label();
             this.textBoxContactId = new System.Windows.Forms.TextBox();
             this.lblContactId = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContacts)).BeginInit();
             this.SuspendLayout();
             // 
             // lblContact
@@ -200,29 +199,17 @@ namespace Contact_App
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnSave
+            // dgvContacts
             // 
-            this.btnSave.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSave.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSave.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnSave.Location = new System.Drawing.Point(320, 727);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(121, 53);
-            this.btnSave.TabIndex = 13;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(627, 217);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(535, 381);
-            this.dataGridView1.TabIndex = 14;
+            this.dgvContacts.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dgvContacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContacts.GridColor = System.Drawing.Color.Snow;
+            this.dgvContacts.Location = new System.Drawing.Point(627, 217);
+            this.dgvContacts.Name = "dgvContacts";
+            this.dgvContacts.RowHeadersWidth = 51;
+            this.dgvContacts.RowTemplate.Height = 29;
+            this.dgvContacts.Size = new System.Drawing.Size(692, 381);
+            this.dgvContacts.TabIndex = 14;
             // 
             // textBoxSearch
             // 
@@ -231,7 +218,7 @@ namespace Contact_App
             this.textBoxSearch.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBoxSearch.Location = new System.Drawing.Point(627, 154);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(432, 30);
+            this.textBoxSearch.Size = new System.Drawing.Size(600, 30);
             this.textBoxSearch.TabIndex = 15;
             // 
             // lblSearch
@@ -240,7 +227,7 @@ namespace Contact_App
             this.lblSearch.BackColor = System.Drawing.Color.Gray;
             this.lblSearch.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSearch.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblSearch.Location = new System.Drawing.Point(1092, 154);
+            this.lblSearch.Location = new System.Drawing.Point(1249, 154);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(70, 24);
             this.lblSearch.TabIndex = 16;
@@ -258,6 +245,7 @@ namespace Contact_App
             this.btnExit.TabIndex = 17;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // textBoxEmail
             // 
@@ -304,7 +292,7 @@ namespace Contact_App
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1246, 808);
+            this.ClientSize = new System.Drawing.Size(1384, 808);
             this.Controls.Add(this.textBoxContactId);
             this.Controls.Add(this.lblContactId);
             this.Controls.Add(this.textBoxEmail);
@@ -312,8 +300,7 @@ namespace Contact_App
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.dgvContacts);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnReset);
@@ -331,7 +318,8 @@ namespace Contact_App
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Contact App";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContacts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,8 +340,7 @@ namespace Contact_App
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvContacts;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnExit;

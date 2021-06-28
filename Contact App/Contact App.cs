@@ -6,6 +6,8 @@ namespace Contact_App
 {
     public partial class Form1 : Form
     {
+        private MySqlCommand cmd;
+
         public Form1()
         {
             InitializeComponent();
@@ -101,17 +103,47 @@ namespace Contact_App
             con.Open();
 
             // delete sql Query
-            string sql = "SELECT * from contactDB";
+            string sql = "SELECT * FROM contactDB";
 
             MySqlCommand cmd = new MySqlCommand(sql, con);
             // update paramters
+            //cmd.Parameters.AddWithValue("contactID", textBoxSearch.Text);
+
             MySqlDataAdapter data = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             data.Fill(dt);
-            dataGridView1.DataSource = dt;
+            dgvContacts.DataSource = dt;
+            dgvContacts.Visible = true;
 
-            
+
             MessageBox.Show("Successfuly Searched");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string cn = @"server=localhost;user=root;password=Elora@3030;database=contactinfo";
+
+            MySqlConnection con = new MySqlConnection(cn);
+
+            con.Open();
+
+            // delete sql Query
+            string sql = "SELECT * FROM contactDB";
+
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+
+            MySqlDataAdapter data = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            dgvContacts.DataSource = dt;
+
+            con.Close();
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
