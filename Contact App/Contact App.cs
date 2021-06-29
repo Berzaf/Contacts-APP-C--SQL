@@ -143,7 +143,8 @@ namespace Contact_App
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            
+            // Close the form
+            this.Close();
         }
     }
 }
